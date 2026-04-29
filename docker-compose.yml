@@ -17,7 +17,7 @@ services:
       DB_HOST: mysql
       DB_DATABASE: asteroid
       DB_USERNAME: root
-      DB_PASSWORD: ""
+      DB_PASSWORD: root
       REDIS_HOST: redis
 
   frontend:

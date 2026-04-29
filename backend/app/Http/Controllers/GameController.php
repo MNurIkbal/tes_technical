@@ -9,6 +9,11 @@ use Illuminate\Support\Facades\Redis;
 
 class GameController extends Controller
 {
+    public function index()
+    {
+        return response()->json(['message' => 'Welcome to the Asteroid Game API']);
+    } 
+    
     public function submitScore(Request $request)
     {
         $playerId = $request->input('player_id');

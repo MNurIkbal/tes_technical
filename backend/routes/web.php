@@ -12,6 +12,7 @@
 | and give it the Closure to call when that URI is requested.
 |
 */
+$router->get('/', 'GameController@index');
 $router->post('/player', 'GameController@registerPlayer');
 $router->get('/leaderboard', 'GameController@leaderboard');
 $router->post('/score', 'GameController@submitScore');

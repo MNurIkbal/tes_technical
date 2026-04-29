@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Support\Facades\Schema;
+
 require_once __DIR__.'/../vendor/autoload.php';
 
 (new Laravel\Lumen\Bootstrap\LoadEnvironmentVariables(
@@ -27,6 +29,7 @@ $app->withFacades();
 
 $app->withEloquent();
 $app->register(Illuminate\Redis\RedisServiceProvider::class);
+
 /*
 |--------------------------------------------------------------------------
 | Register Container Bindings
@@ -61,6 +64,9 @@ $app->singleton(
 
 $app->configure('app');
 $app->configure('database');
+$app->register(Illuminate\Database\DatabaseServiceProvider::class);
+$app->register(Illuminate\Database\MigrationServiceProvider::class);
+Schema::defaultStringLength(191);
 /*
 |--------------------------------------------------------------------------
 | Register Middleware
