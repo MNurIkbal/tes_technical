@@ -28,7 +28,6 @@ $app = new Laravel\Lumen\Application(
 $app->withFacades();
 
 $app->withEloquent();
-$app->register(Illuminate\Redis\RedisServiceProvider::class);
 
 /*
 |--------------------------------------------------------------------------
@@ -64,9 +63,13 @@ $app->singleton(
 
 $app->configure('app');
 $app->configure('database');
+
+
 $app->register(Illuminate\Database\DatabaseServiceProvider::class);
 $app->register(Illuminate\Database\MigrationServiceProvider::class);
-Schema::defaultStringLength(191);
+$app->register(Illuminate\Redis\RedisServiceProvider::class);
+$app->register(App\Providers\AppServiceProvider::class);
+
 /*
 |--------------------------------------------------------------------------
 | Register Middleware
@@ -97,7 +100,6 @@ $app->middleware([
 |
 */
 
-// $app->register(App\Providers\AppServiceProvider::class);
 // $app->register(App\Providers\AuthServiceProvider::class);
 // $app->register(App\Providers\EventServiceProvider::class);
 
